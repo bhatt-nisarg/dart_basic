@@ -1,0 +1,79 @@
+import 'dart:math';
+/*
+ * https://leetcode.com/problems/car-pooling/description/
+ * Car Pooling 
+ * car with capacity empty seats. The vehical only drives east (i.e it cant turn around and drive west).
+ * 
+ you are given the integer capacity and an arraya trips where 
+ trips[i] = [numPassengers(i), from(i), to(i)]
+ indicate i th trips has numPassangers[i] and the locations to pick them up annd drop them off are from and to of i respectively. the locations are given as the number of kilometers due east from the car's initial location.
+ 
+ you have to return result true if it is possible to pick up and drop off all passengers for all the given trips or false otherwise.
+
+Example : 
+  Input : 
+  trips = [[2,1,5],[3,3,7]] 
+  capacity = 4
+  
+  Output : 
+  false
+  
+  list length : 1 to 1000
+  each index length is equal 3
+  from to is in 0 to 1000
+  capacity : 1 to 100000
+*/
+// function for car Pooling 
+bool carPooling(List<List<int>> list,int capacity){
+  
+ // first create list for 1000 length 
+  List<int> passengerTimeLineCount = List.filled(1001,0);
+  int lastPoint = 0;
+  for(List<int> trip in list){
+    //store count from and to in temporary variable 
+    int count = trip[0];
+    int from = trip[1];
+    int to = trip[2];
+    if(count>capacity){
+      // obvious if count is greater then capacity then we have to return false because we dont have capacity to trip
+      return false;
+    }
+    lastPoint = max(lastPoint,to);
+    passengerTimeLineCount[from] += count;
+    passengerTimeLineCount[to] += count;
+    
+  }
+  for(int i=1;i < lastPoint;++i){
+    passengerTimeLineCount[i] += passengerTimeLineCount[i-1];
+    if(passengerTimeLineCount[i] > capacity){
+      return false;
+    }
+  }
+  return true;
+  
+}
+void main(){
+  List<List<int>> trips = [
+    [2,1,5],
+    [3,3,7]
+  ];
+  List<List<int>> trips1 = [
+    [2,1,5],
+    [3,5,7]
+  ];
+  List<List<int>> trips2 = [
+    [2,2,6],
+    [2,4,7],
+    [8,6,7]
+  ];
+    List<List<int>> trips3 = [
+    [7, 5, 6],
+    [6, 7, 8],
+    [10, 1, 6]
+  ];
+  print("for trips : ${carPooling(trips,4)}");
+  
+}
+
+
+
