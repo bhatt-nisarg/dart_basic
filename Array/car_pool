@@ -2,13 +2,19 @@ import 'dart:math';
 /*
  * https://leetcode.com/problems/car-pooling/description/
  * Car Pooling 
- * car with capacity empty seats. The vehical only drives east (i.e it cant turn around and drive west).
+ * car with capacity empty seats. The vehical only drives east 
+ * (i.e it cant turn around and drive west).
  * 
- you are given the integer capacity and an arraya trips where 
- trips[i] = [numPassengers(i), from(i), to(i)]
- indicate i th trips has numPassangers[i] and the locations to pick them up annd drop them off are from and to of i respectively. the locations are given as the number of kilometers due east from the car's initial location.
+you are given the integer capacity and an array a trips where 
+trips[i] = [numPassengers(i), from(i), to(i)]
+indicate i th trips has numPassangers[i] and the locations to
+pick them up and drop them off are from and to of i respectively.
+the locations are given as the number of kilometers due east from 
+the car's initial location.
  
- you have to return result true if it is possible to pick up and drop off all passengers for all the given trips or false otherwise.
+you have to return result true if it is possible to pick up 
+and drop off all passengers for all the given trips or false
+otherwise.
 
 Example : 
   Input : 
