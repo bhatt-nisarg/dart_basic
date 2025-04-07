@@ -2,12 +2,17 @@ import 'dart:math';
 /// arm strong number 
 /// armstrong number means 
 /**
- * like we have number 371 then if wwe take one one digi from it then we and we power the particular number like length of number in this
+ * like we have number 371 then if we take one one digit from it then we and we power the particular number like length of number in this
  * case we have length of the number is 3 then we can say that 
- * 3^3 + 7^3 + 0^3 = 27 + 343 + = 371 = our number means we have this number is armstrong number
+ * 3^3 + 7^3 + 0^3 = 27 + 343 + = 370 = our number means we have this number is armstrong number
+
+ simple description : 
+ if we have one number then each digit power of length of digit  sum is equal to that specific number
+ 
  */
 bool ArmStrongNum(var x){
   print("calculation for the number: ${x} ");
+  print("inside armStong number  :${x}");
   var number = x;
   var numString = number.toString();
   var strLength = numString.length;

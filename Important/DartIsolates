@@ -1,0 +1,17 @@
+Managing background tasks
+
+https://www.youtube.com/watch?v=yUMjt0AxVHU
+
+1 : Core libraries / system APIs
+invoke asynchronously with await, will run on a VM thread.
+await File(path).readAsBytes()
+
+2 : short-lived background tasks
+
+invoke with compute(), will spawn a worker isolate
+await compute(_applySepia,_image)
+
+3 : Long lived background tasks 
+Manually spawn isolate + send message
+await Isolate.spawn(_entry,_receivePort.sendPort)
+_sendPort.send("make Move")

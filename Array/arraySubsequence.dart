@@ -20,7 +20,6 @@ bool checkSubSequence(List<int> mainArr,List<int> sequence){
         while(sequenceArrayIndex < sequence.length && mainArrayIndex < mainArr.length){
             // condition is for sequence index is < sequence array length and main array index is less then main array length  untill we have to follow this process in loop
             if(sequence[sequenceArrayIndex] == mainArr[mainArrayIndex]){
-                sequenceArrayIndex += 1;
             }
             mainArrayIndex += 1;
         }
