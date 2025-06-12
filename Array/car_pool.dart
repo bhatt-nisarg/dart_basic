@@ -47,7 +47,6 @@ bool carPooling(List<List<int>> list,int capacity){
     lastPoint = max(lastPoint,to);
     passengerTimeLineCount[from] += count;
     passengerTimeLineCount[to] += count;
-    
   }
   for(int i=1;i < lastPoint;++i){
     passengerTimeLineCount[i] += passengerTimeLineCount[i-1];
